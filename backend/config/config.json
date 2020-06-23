@@ -1,0 +1,10 @@
+{
+  "development": {
+    "username": "root",
+    "password": "Dinocrisis1",
+    "database": "groupomania_bdd",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  }
+}
