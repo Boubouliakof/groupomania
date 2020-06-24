@@ -76,7 +76,7 @@ exports.register = (req, res) => {
                 email: email,
                 password: bcryptedPassword,
                 imgUrl: imageUrl,
-                isAdmin: 1
+                isAdmin: 0
             });
 
             return res.status(200).json({ success: 'Utilisateur enregistré !' });
