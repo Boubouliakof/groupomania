@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "root",
-    "password": "Dinocrisis1",
-    "database": "groupomania_db",
+    "username": "username",
+    "password": "votrepassword",
+    "database": "nomdevotreDB",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false
