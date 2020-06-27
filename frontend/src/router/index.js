@@ -25,7 +25,11 @@ import MediasList from "@/views/medias/MediasList.vue";
 import ShowMedia from "@/views/medias/ShowMedia.vue";
 import AddMedia from "@/views/medias/AddMedia.vue";
 import UpdateMedia from "@/views/medias/UpdateMedia.vue";
-
+// Posts views
+import PostsList from "@/views/posts/PostsList.vue";
+import ShowPost from "@/views/posts/ShowPost.vue";
+import AddPost from "@/views/posts/AddPost.vue";
+import UpdatePost from "@/views/posts/UpdatePost.vue";
 Vue.use(VueRouter);
 
 // middleware pour ne pas acceder au page sans authentification
@@ -148,6 +152,32 @@ const routes = [
     path: "/messages/update/:messageId",
     name: "updateMessage",
     component: UpdateMessage,
+    beforeEnter: guard
+  },
+  // Posts routes
+  {
+    path: "/posts",
+    name: "postsList",
+    component: PostsList,
+    beforeEnter: guard
+  },
+  {
+    path: "/posts/:postId",
+    name: "showPost",
+    component: ShowPost,
+    props: true,
+    beforeEnter: guard
+  },
+  {
+    path: "/posts/new",
+    name: "addPost",
+    component: AddPost,
+    beforeEnter: guard
+  },
+  {
+    path: "/posts/update/:postId",
+    name: "updatePost",
+    component: UpdatePost,
     beforeEnter: guard
   },
   // si aucune correspondance : retour dashboard

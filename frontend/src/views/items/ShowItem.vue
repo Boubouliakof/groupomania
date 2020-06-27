@@ -19,7 +19,7 @@
         <hr>
         <b-media>
             <template v-slot:aside>
-                <b-img :src="user.imgUrl" width="64" :alt="user.firstname"></b-img>
+                <b-img :src="user.imgUrl" width="64" :alt="user.firstname" rounded="circle"></b-img>
             </template>
 
             <h5 class="mt-0">{{ user.firstname }} {{ user.lastname }}</h5>

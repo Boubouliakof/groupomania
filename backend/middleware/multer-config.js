@@ -20,6 +20,8 @@ const storage = multer.diskStorage({
       target = 'images/medias';
     } else if(domaine == "items") {
       target = 'images/items';
+    } else if(domaine == "posts") {
+      target = 'images/posts';
     }
 
     callback(null, target);

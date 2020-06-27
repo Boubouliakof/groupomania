@@ -7,6 +7,7 @@ var userController = require('../controllers/userController');
 var messageController = require('../controllers/messageController');
 var itemController = require('../controllers/itemController');
 var mediaController = require('../controllers/mediaController');
+var postController = require('../controllers/postController');
 
 // Router
 exports.router = (function() {
@@ -43,6 +44,13 @@ exports.router = (function() {
     router.put('/medias/:id', auth, multer, mediaController.updateMedia);
     router.delete('/medias/:id', auth, mediaController.deleteMedia);
 
+    // Posts Routes
+    router.get('/posts/', auth, postController.getAllPosts);
+    router.get('/posts/:id', auth, postController.getPost);
+    router.post('/posts/', auth, multer, postController.createPost);
+    router.put('/posts/:id', auth, multer, postController.updatePost);
+    router.delete('/posts/:id', auth, postController.deletePost);
+    
 
   return router;
 })();
