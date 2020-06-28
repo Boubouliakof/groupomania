@@ -18,7 +18,7 @@
             </b-form-group>
 
             <!-- Submit Button -->
-            <b-button class="float-right" type="submit" variant="primary">Valider</b-button>
+            <b-button class="float-right" type="submit" variant="primary">Modifier le message</b-button>
         </b-form>
     </div>
 </template>

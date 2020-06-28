@@ -19,7 +19,7 @@
             />
 
             <!-- Submit Button -->
-            <b-button class="float-right" type="submit" variant="primary">Valider</b-button>
+            <b-button class="float-right" type="submit" variant="primary">Modifier l'image</b-button>
         </b-form>
     </div>
 </template>

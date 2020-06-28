@@ -2,7 +2,7 @@
     <div>
         <b-row>
             <b-col sm="8">
-                <h3>Les posts</h3>
+                <h3>Machine à café</h3>
             </b-col>
             <b-col sm="4">
                 <router-link :to="{ name: 'addPost'}">

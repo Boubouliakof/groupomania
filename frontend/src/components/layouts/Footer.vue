@@ -1,6 +1,9 @@
 <template>
     <div id="footer">
-        <p>Groupomania || 2020 </p>
+        <p>
+            <img src="@/assets/logos/icon-left-font-monochrome-white.svg" height="25" alt="logo groupomania">     
+            || 2020 
+        </p>
     </div>
 </template>
 

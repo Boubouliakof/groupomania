@@ -55,7 +55,7 @@
             </b-form-group>
 
             <!-- Submit Button -->
-            <b-button class="float-right" type="submit" variant="primary">Créer l'annonce</b-button>
+            <b-button class="float-right" type="submit" variant="primary">Modifier l'annonce</b-button>
         </b-form>
     </div>
 </template>

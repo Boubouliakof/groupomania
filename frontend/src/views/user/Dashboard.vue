@@ -8,36 +8,40 @@
     <b-row class="mb-3">
       <b-col md="6" sm="12" class="mt-3">
         <router-link :to="{ name: 'mediasList'}">
+          <b-card-img :src="require('../../assets/logos/gallery.jpg')"></b-card-img>
           <b-card
-            img-src="https://picsum.photos/300/300/?image=250"
-            img-alt="Image"
-            style=" max-width: 538px"
             header="Gallerie photos"
             header-text-variant="white"
-            header-bg-variant="secondary"
+            header-bg-variant="info"
             border-variant="secondary"
             class="text-center"
           >
             <b-card-text>Partagez vos dernières photos ici !</b-card-text>
-            <b-card-footer > Ceci est un pied de page </b-card-footer >
+            <b-card-footer > 
+              <h4>Les derniers messages</h4> 
+            </b-card-footer >
+            <MediaCard v-for="media in medias" :key="media.id" :media="media" class="text-left" />
+            <b-alert show variant="secondary" v-if="medias.length == null">Il n'y a aucun contenu multimédia !</b-alert>
           </b-card>
         </router-link>
           
       </b-col>
       <b-col md="6" sm="12" class="mt-3">
         <router-link :to="{ name: 'itemsList'}">
-          <b-icon icon="cart4"></b-icon>
+          <b-card-img :src="require('../../assets/logos/marketplace.jpg')"></b-card-img>
           <b-card
-            img-src="https://picsum.photos/300/300/?image=491"
-            img-alt="Image"
-            header="Annonces"
+            header="Marketplace"
             header-text-variant="white"
-            header-bg-variant="secondary"
+            header-bg-variant="info"
             border-variant="secondary"
             class="text-center"
           >
-          <b-card-text>Retrouvez les dernières annonces de ventes ici !</b-card-text>
-          <b-card-footer > Ceci est un pied de page </b-card-footer >
+            <b-card-text>Retrouvez les derniers objets en vente ici !</b-card-text>
+            <b-card-footer > 
+              <h4>Les derniers messages</h4> 
+            </b-card-footer >
+            <b-alert show variant="secondary" v-if="items.length == null">Il n'y a aucuns messages !</b-alert>
+            <ItemCard v-for="item in items" :key="item.id" :item="item" class="text-left"/>
           </b-card>
         </router-link>
       </b-col>
@@ -46,39 +50,40 @@
     <b-row>
       <b-col md="6" sm="12" class="mt-3">
         <router-link :to="{ name: 'messagesList'}">
+          <b-card-img :src="require('../../assets/logos/message.jpg')"></b-card-img>
           <b-card
-            img-src="https://picsum.photos/300/300/?image=998"
-            img-alt="Image"
-            style=" max-width: 538px"
+            header-id="cafe"
             header="Forum messages"
             header-text-variant="white"
-            header-bg-variant="secondary"
+            header-bg-variant="info"
             border-variant="secondary"
             class="text-center"
           >
-            <b-card-text>Venez discutez et voir les derniers messages ici !</b-card-text>
+            <b-card-text>Venez discuter et voir les derniers messages ici !</b-card-text>
             <b-card-footer > 
               <h4>Les derniers messages</h4>  
             </b-card-footer >
             <b-alert show variant="secondary" v-if="messages.length == null">Il n'y a aucuns messages !</b-alert>
-              <MessageCard v-for="message in messages" :key="message.id" :message="message" class="mb-2" />
+              <MessageCard v-for="message in messages" :key="message.id" :message="message" class="text-left" />
           </b-card>
         </router-link>
       </b-col>
      <b-col md="6" sm="12" class="mt-3">
         <router-link :to="{ name: 'postsList'}">
-          <b-icon icon="cart4"></b-icon>
+          <b-card-img :src="require('../../assets/logos/cafe.jpg')"></b-card-img>
           <b-card
-            img-src="https://picsum.photos/300/300/?image=491"
-            img-alt="Image"
-            header="Posts"
+            header="Machine à café"
             header-text-variant="white"
-            header-bg-variant="secondary"
+            header-bg-variant="info"
             border-variant="secondary"
             class="text-center"
           >
-          <b-card-text>Retrouvez les derniers posts ici !</b-card-text>
-          <b-card-footer > Ceci est un pied de page </b-card-footer >
+            <b-card-text>Venez échanger librement ici !</b-card-text>
+            <b-card-footer > 
+              <h4>Les derniers messages</h4> 
+            </b-card-footer >
+            <b-alert show variant="secondary" v-if="posts.length == null">Il n'y a aucuns messages !</b-alert>
+            <PostCard v-for="post in posts" :key="post.id" :post="post" class="text-left"/>
           </b-card>
         </router-link>
       </b-col>
@@ -90,29 +95,46 @@
   import { mapGetters } from 'vuex'
   import axios from "axios"
   import MessageCard from '@/components/messages/MessageCard'
+  import ItemCard from '@/components/items/ItemCard'
+  import MediaCard from '@/components/medias/MediaCard'
+  import PostCard from '@/components/posts/PostCard'
   
   export default {
     name: "Dashboard",
-    props: ['message'],
+    props:  ['message'],
     components: {
-      MessageCard
+      MessageCard,
+      ItemCard,
+      MediaCard,
+      PostCard
     },
     computed: {
       ...mapGetters({
           userInfos: 'auth/user'
       })
     },
-            data () {
-            return {
-                messages: {}
-            }
-        },
-        mounted () {
-            axios.get('messages').then(response => {
-                // console.log(this.messages)
-                this.messages = response.data
-            })
+    data () {
+      return {
+        messages: {},
+        items: {},
+        medias: {},
+        posts: {},
         }
+      },
+    mounted () {
+      axios.get('messages').then(response => {
+        this.messages = response.data.slice(0, 2)
+      })
+      axios.get('items').then(response => {
+        this.items = response.data.slice(0, 2)
+      })
+      axios.get('medias').then(response => {
+        this.medias = response.data.slice(0, 2)
+      })
+      axios.get('posts').then(response => {
+        this.posts = response.data.slice(0, 2)
+      })
+    }
   };
 </script>
 

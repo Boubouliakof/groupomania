@@ -33,6 +33,6 @@
     max-height: 200px;
   }
   .main {
-    min-height: 1050px;
+    min-height: 765px;
   }
 </style>
