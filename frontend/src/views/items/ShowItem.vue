@@ -25,7 +25,7 @@
             <h5 class="mt-0">{{ user.firstname }} {{ user.lastname }}</h5>
             <p>{{ item.title }}</p>
             <p>{{ item.description }}</p>
-            <p>Prix : {{ item.price }}</p>
+            <p>Prix : {{ item.price }} €</p>
             <b-img :src="item.imageUrl" fluid alt=""></b-img>
         </b-media>
     </div>
