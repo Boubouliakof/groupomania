@@ -101,7 +101,7 @@ exports.login = (req, res) => {
     }
     
     if (!PASSWORD_REGEX.test(password)) {
-        return res.status(400).json({ error: 'Le mot de passe est invalide. Il doit avoir une longueur de 4 à 16 caractères et contenir au moins 1 chiffre.' });
+        return res.status(400).json({ error: 'Le mot de passe est invalide. Il doit avoir au moins 1 majuscule, 1 minuscule, 1 chiffre, 1 caractère spécial et une longueur d\'au moins 10.' });
     }
 
     // Renvoie l'utilisateur avec email

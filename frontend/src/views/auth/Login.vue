@@ -22,6 +22,9 @@
       </b-form-group>
 
       <b-button class="float-right" type="submit" variant="primary">Se connecter</b-button>
+
+      <router-link class="inscrit" :to="{ name: 'register'}">Pas encore inscrit ?</router-link>
+
     </b-form>
   </div>
 </template>
@@ -31,9 +34,6 @@
 
   export default {
     name: "Login",
-    components: {
-      //
-    },
     data() {
       return {
         form: {
@@ -96,5 +96,10 @@ form {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
+}
+
+.inscrit {
+  margin-top: 10px;
+  text-align: center;
 }
 </style>
