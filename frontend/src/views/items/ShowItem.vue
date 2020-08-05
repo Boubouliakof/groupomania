@@ -26,7 +26,7 @@
             <p>{{ item.title }}</p>
             <p>{{ item.description }}</p>
             <p>Prix : {{ item.price }} €</p>
-            <b-img :src="item.imageUrl" fluid alt=""></b-img>
+            <b-img :src="item.imageUrl" fluid alt="image item"></b-img>
         </b-media>
     </div>
 </template>

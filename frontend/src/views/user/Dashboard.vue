@@ -8,7 +8,7 @@
     <b-row class="mb-3">
       <b-col md="6" sm="12" class="mt-3">
         <router-link :to="{ name: 'mediasList'}">
-          <b-card-img :src="require('../../assets/logos/gallery.jpg')"></b-card-img>
+          <b-card-img :src="require('../../assets/logos/gallery.jpg')" alt="image deco"></b-card-img>
           <b-card
             header="Gallerie photos"
             header-text-variant="white"
@@ -28,7 +28,7 @@
       </b-col>
       <b-col md="6" sm="12" class="mt-3">
         <router-link :to="{ name: 'itemsList'}">
-          <b-card-img :src="require('../../assets/logos/marketplace.jpg')"></b-card-img>
+          <b-card-img :src="require('../../assets/logos/marketplace.jpg')" alt="image deco"></b-card-img>
           <b-card
             header="Marketplace"
             header-text-variant="white"
@@ -50,7 +50,7 @@
     <b-row>
       <b-col md="6" sm="12" class="mt-3">
         <router-link :to="{ name: 'messagesList'}">
-          <b-card-img :src="require('../../assets/logos/message.jpg')"></b-card-img>
+          <b-card-img :src="require('../../assets/logos/message.jpg')" alt="image deco"></b-card-img>
           <b-card
             header-id="cafe"
             header="Forum messages"
@@ -70,7 +70,7 @@
       </b-col>
      <b-col md="6" sm="12" class="mt-3">
         <router-link :to="{ name: 'postsList'}">
-          <b-card-img :src="require('../../assets/logos/cafe.jpg')"></b-card-img>
+          <b-card-img :src="require('../../assets/logos/cafe.jpg')" alt="image deco"></b-card-img>
           <b-card
             header="Machine à café"
             header-text-variant="white"
@@ -143,5 +143,9 @@
   a:hover {
     color: #000!important;
     text-decoration: none;
+  }
+  .card-header {
+  font-size: 1.5em;
+  font-weight: 700;
   }
 </style>

@@ -8,7 +8,7 @@
                     </template>
 
                     <h5 class="mt-0">{{ post.User.firstname }} {{ post.User.lastname }}</h5>
-                    <b-img :src="post.imageUrl" fluid alt="" style="max-width: 200px; float: left; margin-right: 20px;"></b-img>
+                    <b-img :src="post.imageUrl" fluid alt="image post" style="max-width: 200px; float: left; margin-right: 20px;"></b-img>
                     <p>{{ post.post }}</p>
                 </b-media>
             </b-card>

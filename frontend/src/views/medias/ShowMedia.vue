@@ -23,7 +23,7 @@
             </template>
 
             <h5 class="mt-0">{{ user.firstname }} {{ user.lastname }}</h5>
-            <b-img :src="media.mediaUrl" fluid alt=""></b-img>
+            <b-img :src="media.mediaUrl" fluid alt="media image"></b-img>
         </b-media>
     </div>
 </template>
